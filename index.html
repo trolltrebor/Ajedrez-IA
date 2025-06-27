@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajedrez</title>
+  <link rel="stylesheet" href="https://unpkg.com/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+      background-color: #f0f0f0;
+    }
+    #board {
+      width: 480px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="board"></div>
+
+  <!-- Librerías -->
+  <script src="https://unpkg.com/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
+
+  <!-- Inicialización del tablero -->
+  <script>
+    const game = new Chess();
+
+    const board = Chessboard('board', {
+      position: 'start',
+      draggable: true,
+      onDrop: function (source, target) {
+        const move = game.move({
+          from: source,
+          to: target,
+          promotion: 'q'
+        });
+
+        if (move === null) return 'snapback';
+      },
+      onSnapEnd: function () {
+        board.position(game.fen());
+      }
+    });
+  </script>
+
+</body>
+</html>
