@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ajedrez con IA y Cronómetro</title>
+<link rel="stylesheet" href="libs/chessboard-1.0.0.min.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1>Ajedrez con IA y Cronómetro</h1>
+
+<div id="board" style="width: 400px"></div>
+
+<div id="status"></div>
+
+<div class="timers">
+  <div>Blanco: <span id="timerWhite">05:00</span></div>
+  <div>Negro: <span id="timerBlack">05:00</span></div>
+</div>
+
+<label for="level">Nivel IA:</label>
+<select id="level">
+  <option value="1">Fácil</option>
+  <option value="2">Medio</option>
+  <option value="3">Difícil</option>
+</select>
+
+<button id="startBtn">Iniciar Juego</button>
+
+<script src="libs/chess.min.js"></script>
+<script src="libs/chessboard-1.0.0.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
